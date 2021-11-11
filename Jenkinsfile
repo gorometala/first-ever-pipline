@@ -47,6 +47,6 @@ pipeline {
 
   }
   environment {
-    VAGRANT_USER = 'vagrant'
+    VAGRANT_USER = "vagrant"
   }
 }
