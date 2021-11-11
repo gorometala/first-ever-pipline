@@ -20,7 +20,7 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        echo 'deploying  to azure'
+        echo 'deploying  to Azure'
       }
     }
 
