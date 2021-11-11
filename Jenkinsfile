@@ -12,13 +12,13 @@ pipeline {
         stage('Test') {
           steps {
             echo 'Testing application'
-            echo 'get vagrant user "$VAGRANT_USER"'
+            echo "get user ${VAGRANT_USER}"
           }
         }
 
         stage('Test Log') {
           steps {
-            writeFile(file: 'logtestfile.txt', text: 'This is automation file log')
+            writeFile(file: 'logtestfile.txt', text: "This is automation file log for ${VAGRANT_USER}")
           }
         }
 
@@ -29,7 +29,7 @@ pipeline {
       parallel {
         stage('Deploy') {
           steps {
-            echo 'deploying  to Azure'
+            echo 'Deploying  to Azure'
           }
         }
 
