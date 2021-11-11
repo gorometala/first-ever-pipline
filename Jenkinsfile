@@ -18,7 +18,7 @@ pipeline {
 
         stage('Test Log') {
           steps {
-            writeFile(file: 'testoutput.txt', text: 'This is automation file')
+            writeFile(file: 'testlogfile.txt', text: 'This is automation file')
           }
         }
 
