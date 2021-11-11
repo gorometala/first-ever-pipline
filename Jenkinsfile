@@ -12,6 +12,7 @@ pipeline {
         stage('Test') {
           steps {
             echo 'Testing application'
+            echo 'get vagrant user "$VAGRANT_USER"'
           }
         }
 
@@ -24,5 +25,8 @@ pipeline {
       }
     }
 
+  }
+  environment {
+    VAGRANT_USER = 'vagrant'
   }
 }
