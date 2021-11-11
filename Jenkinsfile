@@ -17,8 +17,8 @@ pipeline {
         }
 
         stage('Test Log') {
-          environment{
-            LocalVariable = "HelloLocal"
+          environment {
+            LocalVariable = 'HelloLocal'
           }
           steps {
             writeFile(file: 'logtestfile.txt', text: "This is automation file log for ${VAGRANT_USER} and local var is : ${LocalVariable}")
@@ -32,7 +32,7 @@ pipeline {
       parallel {
         stage('Deploy') {
           steps {
-            echo 'Deploying  to Azure'
+            input(message: 'Do you want to deploy', id: 'OK')
           }
         }
 
@@ -47,6 +47,6 @@ pipeline {
 
   }
   environment {
-    VAGRANT_USER = "vagrant"
+    VAGRANT_USER = 'vagrant'
   }
 }
