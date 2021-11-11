@@ -18,7 +18,7 @@ pipeline {
 
         stage('Test Log') {
           steps {
-            writeFile(file: 'testoutput', text: 'This is automation file')
+            writeFile(file: 'testoutput.txt', text: 'This is automation file')
           }
         }
 
@@ -26,8 +26,19 @@ pipeline {
     }
 
     stage('Deploy') {
-      steps {
-        echo 'deploying  to Azure'
+      parallel {
+        stage('Deploy') {
+          steps {
+            echo 'deploying  to Azure'
+          }
+        }
+
+        stage('Artifacts') {
+          steps {
+            archiveArtifacts 'logtestfile.txt'
+          }
+        }
+
       }
     }
 
