@@ -1,6 +1,9 @@
 pipeline {
   agent any
   stages {
+    environment {
+      VAGRANT_USER = "vagrant"
+    }
     stage('Build') {
       parallel {
         stage('Build') {
@@ -45,8 +48,5 @@ pipeline {
       }
     }
 
-  }
-  environment {
-    VAGRANT_USER = "vagrant"
   }
 }
